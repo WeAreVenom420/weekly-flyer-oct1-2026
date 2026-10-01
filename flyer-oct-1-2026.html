@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weekly Grocery Deals — Oct 1–7, 2026</title>
+<style>
+  :root { --green:#2e7d32; --green-light:#e8f5e9; --bg:#f5f5f5; --card-bg:#fff; --text:#212121; --muted:#757575; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--text); line-height:1.4; }
+  header { padding:24px 16px; background:var(--green); color:#fff; text-align:center; }
+  header h1 { margin:0 0 4px; font-size:1.8rem; }
+  header p { margin:0; font-size:1rem; opacity:.9; }
+  .controls { display:flex; flex-wrap:wrap; gap:8px; padding:12px 16px; background:#fff; border-bottom:1px solid #e0e0e0; align-items:center; }
+  .controls input[type=search] { flex:1 1 200px; min-width:160px; padding:10px 12px; border:1px solid #ccc; border-radius:6px; font-size:.95rem; }
+  .filter-btn { padding:8px 14px; border:1px solid #ccc; background:#fff; border-radius:6px; cursor:pointer; font-size:.85rem; color:var(--text); transition:.15s; }
+  .filter-btn.active, .filter-btn:hover { background:var(--green); border-color:var(--green); color:#fff; }
+  .count { margin-left:auto; font-size:.85rem; color:var(--muted); white-space:nowrap; }
+  .stores-row { display:flex; gap:16px; overflow-x:auto; padding:16px; }
+  .store-col { min-width:260px; flex:0 0 auto; background:var(--card-bg); border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,.08); padding:12px; display:flex; flex-direction:column; }
+  .store-header { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid #eee; }
+  .store-header h2 { margin:0; font-size:1.1rem; color:var(--green); }
+  .store-header .dates { font-size:.75rem; color:var(--muted); }
+  .card { position:relative; background:#fafafa; border:1px solid #eee; border-radius:8px; margin-bottom:10px; overflow:hidden; cursor:pointer; transition:box-shadow .15s, border-color .15s; }
+  .card > * { pointer-events:none; }
+  .card:hover { box-shadow:0 2px 6px rgba(0,0,0,.1); border-color:#ddd; }
+  .card img { width:100%; height:150px; object-fit:cover; background:#eee; }
+  .card-body { padding:10px 12px; }
+  .card .name { font-weight:600; font-size:.95rem; margin-bottom:4px; }
+  .card .price { font-weight:700; font-size:1.1rem; color:var(--green); margin-bottom:2px; }
+  .card .detail { font-size:.8rem; color:var(--muted); margin-bottom:6px; }
+  .card .category-tag { display:inline-block; font-size:.7rem; text-transform:uppercase; background:var(--green-light); color:var(--green); padding:2px 6px; border-radius:4px; margin-bottom:6px; }
+  .badges { display:flex; gap:4px; flex-wrap:wrap; }
+  .badge { font-size:.65rem; font-weight:600; padding:2px 6px; border-radius:4px; text-transform:uppercase; }
+  .badge.organic { background:#e8f5e9; color:#2e7d32; }
+  .badge.bogo { background:#fff3e0; color:#e65100; }
+  .checkmark { position:absolute; top:8px; right:8px; width:24px; height:24px; border:2px solid #ccc; border-radius:50%; display:flex; align-items:center; justify-content:center; background:#fff; opacity:0; pointer-events:none; transition:opacity .15s, border-color .15s; }
+  .card.checked .checkmark { opacity:1; border-color:var(--green); }
+  .card.checked .checkmark::after { content:"✓"; color:var(--green); font-size:1rem; font-weight:bold; }
+  @media (max-width:600px) {
+    .stores-row { padding:12px; }
+    .store-col { min-width:100%; }
+  }
+</style>
+
+<style>
+  .stores-row { display:flex; align-items:flex-start; gap:16px; overflow-x:auto; padding:16px; scroll-snap-type:x mandatory; scroll-padding-inline:16px; overscroll-behavior-x:contain; }
+  .store-col { width:clamp(180px, 17vw, 240px); min-width:0; max-width:240px; flex:0 0 clamp(180px, 17vw, 240px); scroll-snap-align:start; scroll-snap-stop:always; }
+  .store-header { align-items:flex-start; gap:8px; }
+  .store-meta { text-align:right; max-width:62%; }
+  .store-header .dates { display:block; line-height:1.35; }
+  .promotions { margin:16px 16px 0; }
+  .promo-callout { padding:14px 16px; background:#fff8e1; border:1px solid #f0c36a; border-radius:8px; color:#5d4200; }
+  .promo-callout strong { display:block; margin-bottom:3px; color:#8d5d00; font-size:1rem; }
+  .promo-callout p { margin:0; font-size:.9rem; line-height:1.4; }
+  .section-label { margin:10px 0 8px; padding:6px 8px; border-radius:5px; background:var(--green-light); color:var(--green); font-size:.72rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; }
+  .empty-category { margin:0 0 10px; padding:0 8px 2px; color:var(--muted); font-size:.8rem; }
+  .card.hot { border-color:#e57373; box-shadow:inset 3px 0 0 #c62828; }
+  .card.hot .price { color:#b71c1c; }
+  .price-line { display:flex; justify-content:space-between; align-items:baseline; gap:8px; margin-bottom:2px; }
+  .price-line span { color:var(--muted); font-size:.7rem; font-weight:600; text-transform:uppercase; }
+  .price-line strong { text-align:right; font-size:.82rem; }
+  .price-line.primary strong { color:var(--green); font-size:1.05rem; }
+  .card.hot .price-line.primary strong { color:#b71c1c; }
+  .badge.date { background:#e3f2fd; color:#0d47a1; }
+  .badge.frozen { background:#e0f7fa; color:#006064; }
+  .badge.low { background:#fff8e1; color:#8d6e00; }
+  .ending-row { margin:12px 16px 0; padding:10px 12px; background:var(--card-bg); border:1px solid #e0e0e0; border-radius:8px; display:flex; gap:10px; align-items:center; font-size:.84rem; }
+  .ending-row strong { color:var(--green); }
+  .ending-row span { color:var(--muted); }
+  @media (max-width:600px) {
+    .stores-row { gap:4px; padding:6px; scroll-padding-inline:6px; }
+    .store-col { width:30vw; min-width:30vw; max-width:30vw; flex-basis:30vw; padding:5px; border-radius:7px; }
+    .store-header { display:block; margin-bottom:7px; padding-bottom:6px; }
+    .store-header h2 { font-size:.78rem; line-height:1.2; margin-bottom:4px; overflow-wrap:anywhere; }
+    .store-meta { max-width:none; text-align:left; }
+    .store-header .dates { font-size:.625rem; line-height:1.2; overflow-wrap:anywhere; }
+    .promotions { margin:10px 12px 0; }
+    .promo-callout { padding:10px 12px; }
+    .promo-callout strong { font-size:.82rem; }
+    .promo-callout p { font-size:.72rem; }
+    .section-label { margin:6px 0 5px; padding:4px; font-size:.625rem; line-height:1.2; letter-spacing:.02em; overflow-wrap:anywhere; }
+    .empty-category { margin:0 0 6px; padding:0 4px 1px; font-size:.625rem; line-height:1.2; }
+    .card { margin-bottom:6px; border-radius:5px; }
+    .card img { height:78px; }
+    .card-body { padding:6px; }
+    .card .name { font-size:.6875rem; line-height:1.25; margin-bottom:4px; overflow-wrap:anywhere; }
+    .price-line { display:block; margin-bottom:3px; }
+    .price-line span { display:block; font-size:.625rem; line-height:1.15; }
+    .price-line strong, .price-line.primary strong { display:block; text-align:left; font-size:.6875rem; line-height:1.2; overflow-wrap:anywhere; }
+    .card .detail { font-size:.625rem; line-height:1.2; margin-bottom:4px; overflow-wrap:anywhere; }
+    .card .category-tag, .badge { font-size:.625rem; line-height:1.15; padding:2px 4px; overflow-wrap:anywhere; }
+    .badges { gap:3px; }
+    .checkmark { top:4px; right:4px; width:18px; height:18px; }
+    .card.checked .checkmark::after { font-size:.75rem; }
+  }
+</style>
+
+<style>
+  /* Category-first layout: each food department owns the page section, with stores grouped beneath it. */
+  .stores-row {
+    display:block;
+    max-width:1480px;
+    margin:0 auto;
+    padding:18px 16px 44px;
+    overflow:visible;
+  }
+  .category-block {
+    margin:0 0 22px;
+    background:var(--card-bg);
+    border:1px solid #dedede;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 1px 3px rgba(0,0,0,.06);
+  }
+  .category-heading {
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:16px;
+    margin:0;
+    padding:14px 16px;
+    background:var(--green);
+    color:#fff;
+  }
+  .category-heading h2 { margin:0; font-size:1.3rem; line-height:1.2; }
+  .category-heading span { font-size:.8rem; font-weight:600; opacity:.9; white-space:nowrap; }
+  .category-store-grid {
+    display:grid;
+    grid-template-columns:repeat(5, minmax(0, 1fr));
+    align-items:start;
+    gap:0;
+  }
+  .category-store {
+    min-width:0;
+    padding:12px;
+    border-right:1px solid #e7e7e7;
+  }
+  .category-store:last-child { border-right:0; }
+  .category-store .store-header {
+    min-height:64px;
+    margin:0 0 10px;
+    padding:0 0 9px;
+  }
+  .category-store .store-header h3 { margin:0; color:var(--green); font-size:1rem; }
+  .category-store .cards { display:grid; grid-template-columns:1fr; gap:10px; }
+  .category-store .card { margin:0; }
+  .category-store .card img { height:132px; }
+  .category-store .category-tag { display:none; }
+  .empty-results {
+    padding:42px 20px;
+    border:1px dashed #bdbdbd;
+    border-radius:10px;
+    background:var(--card-bg);
+    color:var(--muted);
+    text-align:center;
+  }
+  @media (max-width:600px) {
+    header { padding:20px 16px; }
+    .controls { position:sticky; top:0; z-index:5; padding:10px 12px; }
+    .count { width:100%; margin-left:0; }
+    .stores-row { padding:12px 10px 32px; }
+    .category-block { margin-bottom:16px; }
+    .category-heading { padding:12px 13px; }
+    .category-heading h2 { font-size:1.15rem; }
+    .category-store-grid {
+      display:flex;
+      align-items:flex-start;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      overscroll-behavior-x:contain;
+      -webkit-overflow-scrolling:touch;
+    }
+    .category-store,
+    .category-store:nth-child(2n),
+    .category-store:nth-last-child(-n+2) {
+      width:30vw;
+      min-width:30vw;
+      max-width:30vw;
+      flex:0 0 30vw;
+      padding:8px;
+      border-right:1px solid #e3e3e3;
+      border-bottom:0;
+      scroll-snap-align:start;
+      scroll-snap-stop:always;
+    }
+    .category-store:last-child { border-right:0; }
+    .category-store .store-header { display:flex; min-height:0; align-items:flex-start; margin-bottom:10px; }
+    .category-store .store-header h3 { font-size:.95rem; }
+    .category-store .store-meta { max-width:65%; text-align:right; }
+    .category-store .store-header .dates { font-size:.7rem; }
+    .category-store .cards { grid-template-columns:repeat(2, minmax(0, 1fr)); gap:8px; }
+    .category-store .card img { height:105px; }
+    .category-store .card-body { padding:8px; }
+    .category-store .card .name { font-size:.78rem; }
+    .category-store .price-line span { font-size:.625rem; }
+    .category-store .price-line strong,
+    .category-store .price-line.primary strong { font-size:.75rem; }
+    .category-store .card .detail { font-size:.68rem; }
+  }
+  @media (max-width:420px) {
+    .category-store .cards { grid-template-columns:minmax(0, 1fr); gap:6px; }
+    .category-store .card { display:block; min-width:0; }
+    .category-store .card img { display:block; width:100%; height:72px; min-height:0; }
+    .category-store .card-body { min-width:0; padding:6px 5px; overflow:hidden; }
+    .category-store .card-body * { max-width:100%; overflow-wrap:anywhere; }
+    .category-store .checkmark { opacity:1; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Weekly Grocery Deals</h1>
+  <p>Meat, poultry, seafood, eggs, dairy &amp; produce — four stores, one page · Oct 1–7, 2026</p>
+</header>
+
+<div class="controls">
+  <input type="search" id="searchInput" placeholder="Search deals…" aria-label="Search deals">
+  <div style="display:flex; gap:6px; flex-wrap:wrap;">
+    <button class="filter-btn active" data-filter="All">All</button>
+    <button class="filter-btn" data-filter="BOGO">BOGO</button>
+    <button class="filter-btn" data-filter="Organic">Organic</button>
+    <button class="filter-btn" data-filter="My List">My List</button>
+  </div>
+  <div class="count" id="liveCount">Showing 0 of 0 deals</div>
+</div>
+
+<div class="ending-row" id="endingSoon"><strong>Ending Soon</strong><span>No deals end early this week.</span></div>
+
+<div class="stores-row" id="storesRow" role="region" tabindex="0" aria-label="Store deals. Image verification pending." aria-busy="true"></div>
+
+<script>
+const STORE_ORDER = ["Publix", "Sprouts", "Winn-Dixie", "Aldi"];;
+const STORE_META = {"Publix": {"dates": "Oct 1\u20137, 2026 (9/30\u201310/6 for some areas)"}, "Sprouts": {"dates": "Sep 30\u2013Oct 6, 2026"}, "Winn-Dixie": {"dates": "Sep 30\u2013Oct 6, 2026 (separate weekend-deals ad not yet posted \u2014 check Thursday)"}, "Aldi": {"dates": "Sep 30\u2013Oct 6, 2026 (prices not verified at Lecanto store)"}};;
+const DEALS = [{"store": "Publix", "n": "Campari Tomatoes, 1-lb", "p": "BOGO $5.15", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/watermelon.jpg", "bogo": true}, {"store": "Publix", "n": "Fresh Express Chopped Kit, Kit or Salad Blends, 5 to 13.3 oz", "p": "BOGO $5.65", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/salad.jpg", "bogo": true}, {"store": "Publix", "n": "Kiwi Berries, 6 oz", "p": "BOGO $4.99", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/berries.jpg", "bogo": true}, {"store": "Publix", "n": "Pero Family Farms Mini Sweet Peppers, 8 oz bag", "p": "BOGO $4.15", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/squash.jpg", "bogo": true}, {"store": "Publix", "n": "Pero Family Farms Peppers +, Sliced Bell Peppers and Onions, Microwavable Tray, 10 oz", "p": "BOGO $5.15", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/grapes.jpg", "bogo": true}, {"store": "Publix", "n": "Publix Pineapple Chunks, Small or Medium Size", "p": "BOGO $5.15/lb", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/diced-vegetables.jpg", "bogo": true}, {"store": "Publix", "n": "Sweetango Apples, 2-lb bag", "p": "BOGO $6.19", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/apples.png", "bogo": true}, {"store": "Publix", "n": "Vegetable Stir Fry, Microwavable, 12 oz", "p": "BOGO $4.15", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/carrots.png", "bogo": true}, {"store": "Publix", "n": "Belgioioso Snacking Cheese, 6 oz", "p": "BOGO", "d": "no price listed", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/string-cheese.jpg", "bogo": true}, {"store": "Publix", "n": "Lantana Hummus, 10 oz", "p": "BOGO $5.15", "d": "", "category": "Plant-Based", "date": "", "organic": false, "frozen": false, "img": "assets/plant-based-burgers.jpg", "bogo": true}, {"store": "Publix", "n": "Publix Tzatziki Dip, 10 oz", "p": "BOGO", "d": "no price listed", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/shredded-cheese.jpg", "bogo": true}, {"store": "Publix", "n": "Icelandic Provisions Skyr Yogurt, 4.4 or 5.3 oz cup", "p": "BOGO $2", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/generic-greek-yogurt.jpg", "bogo": true}, {"store": "Publix", "n": "Natural Bliss Coffee Creamer, 32 oz bot", "p": "BOGO $6.49", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/sargento.png", "bogo": true}, {"store": "Publix", "n": "Pancho's Queso Dip, White or Original, 16 oz", "p": "BOGO $6.49", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/lactaid-milk.jpg", "bogo": true}, {"store": "Publix", "n": "Publix Shredded Cheese, 16 oz", "p": "BOGO $6.49", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/shredded-cheese.jpg", "bogo": true}, {"store": "Publix", "n": "Silk Almond Creamer, or Oat Creamer, 32 oz", "p": "BOGO $5.99", "d": "", "category": "Plant-Based", "date": "", "organic": false, "frozen": false, "img": "assets/plant-based-burgers.jpg", "bogo": true}, {"store": "Publix", "n": "So Delicious Coconut Milk Coffee Creamer, 32 oz", "p": "BOGO $5.99", "d": "", "category": "Plant-Based", "date": "", "organic": false, "frozen": false, "img": "assets/plant-based-burgers.jpg", "bogo": true}, {"store": "Publix", "n": "Tillamook Cheese Slices, or Cheese Snacks or Shredded, 6 to 8 oz", "p": "BOGO $5.25", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/cheese-slices.jpg", "bogo": true}, {"store": "Publix", "n": "Tillamook Chunk Cheese, 8 oz", "p": "BOGO $5.24", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/happy-farms-cream-cheese.jpg", "bogo": true}, {"store": "Publix", "n": "Armour Pepperoni, 5 oz", "p": "BOGO $4.65", "d": "", "category": "Pork", "date": "", "organic": false, "frozen": false, "img": "assets/sausage.jpg", "bogo": true}, {"store": "Publix", "n": "Carando Sliced Pepperoni, 6 oz", "p": "BOGO $4.65", "d": "", "category": "Pork", "date": "", "organic": false, "frozen": false, "img": "assets/pulled-pork.jpg", "bogo": true}, {"store": "Publix", "n": "Demakes Bros. Shaved Wagyu Beef, 10 oz", "p": "BOGO $11.29", "d": "", "category": "Beef", "date": "", "organic": false, "frozen": false, "img": "assets/ground-beef.jpg", "bogo": true}, {"store": "Publix", "n": "Eckrich Polska Kielbasa, or Smoked Sausage, 13 or 14 oz", "p": "BOGO $6.19", "d": "", "category": "Pork", "date": "", "organic": false, "frozen": false, "img": "assets/sausage.jpg", "bogo": true}, {"store": "Publix", "n": "Jack Link's Beef Sticks, 10 ct", "p": "BOGO $17.49", "d": "", "category": "Beef", "date": "", "organic": false, "frozen": false, "img": "assets/beef-roast.jpg", "bogo": true}, {"store": "Publix", "n": "Just Bare Chicken Wings, 22 oz", "p": "BOGO $7.75", "d": "", "category": "Poultry", "date": "", "organic": false, "frozen": false, "img": "assets/turkey-wings.webp", "bogo": true}, {"store": "Publix", "n": "Prime Fresh Delicatessen Lunch Meats, By Smithfield, Family Size, 14 or 16 oz", "p": "BOGO $8.99", "d": "", "category": "Pork", "date": "", "organic": false, "frozen": false, "img": "assets/pork.jpg", "bogo": true}, {"store": "Publix", "n": "Publix Assorted Pork Loin Chops, 8 Chops", "p": "BOGO $5.99/lb", "d": "", "category": "Pork", "date": "", "organic": false, "frozen": false, "img": "assets/pork-tenderloin.jpg", "bogo": true}, {"store": "Publix", "n": "Sahlen's Hot Dogs, 13.7 or 16 oz", "p": "BOGO $8.29", "d": "", "category": "Pork", "date": "", "organic": false, "frozen": false, "img": "assets/pork-shoulder.jpg", "bogo": true}, {"store": "Publix", "n": "Smithfield Bacon, 12 or 16 oz", "p": "BOGO $9.99", "d": "", "category": "Pork", "date": "", "organic": false, "frozen": false, "img": "assets/bacon.jpg", "bogo": true}, {"store": "Publix", "n": "Springer Mountain Farms Chicken Breasts, Boneless, Grade A", "p": "BOGO $6.99/lb", "d": "", "category": "Poultry", "date": "", "organic": false, "frozen": false, "img": "assets/springer.jpg", "bogo": true}, {"store": "Publix", "n": "Margaritaville Shrimp Appetizers, Frozen, 8 or 10 oz box", "p": "BOGO $11.99", "d": "", "category": "Seafood", "date": "", "organic": false, "frozen": true, "img": "assets/shrimp.jpg", "bogo": true}, {"store": "Publix", "n": "Publix Mussels, Frozen, 16 oz box", "p": "BOGO $5.99", "d": "", "category": "Seafood", "date": "", "organic": false, "frozen": true, "img": "assets/tilapia.jpg", "bogo": true}, {"store": "Publix", "n": "Seapak Morey's Fish Fillets, 2 ct, 10 oz box", "p": "BOGO $12.39", "d": "", "category": "Seafood", "date": "", "organic": false, "frozen": false, "img": "assets/fish-fillets.png", "bogo": true}, {"store": "Publix", "n": "Daring Plant Chicken Pieces, or Steak Bites, 7.5 or 8 oz bag", "p": "BOGO $6.89", "d": "", "category": "Plant-Based", "date": "", "organic": false, "frozen": false, "img": "assets/plant-based-burgers.jpg", "bogo": true}, {"store": "Publix", "n": "Gorton's Fish Sticks, or Fillets, Portions, or Taco Tenders, 16.2 to 24.5 oz", "p": "BOGO $11.19", "d": "", "category": "Seafood", "date": "", "organic": false, "frozen": false, "img": "assets/fish-fillets.png", "bogo": true}, {"store": "Publix", "n": "Simek's Meatballs, 12 to 22 oz", "p": "BOGO $13.39", "d": "", "category": "Beef", "date": "", "organic": false, "frozen": false, "img": "assets/top-sirloin.jpg", "bogo": true}, {"store": "Publix", "n": "Skinny Butcher Crazy Crispy Chicken, Bites, Tenders, or Breasts, 24 oz", "p": "BOGO $13.39", "d": "", "category": "Poultry", "date": "", "organic": false, "frozen": false, "img": "assets/chicken.jpg", "bogo": true}, {"store": "Publix", "n": "Yummy Dino Buddies Chicken Breast Nuggets, 18 or 21 oz", "p": "BOGO $13.39", "d": "", "category": "Poultry", "date": "", "organic": false, "frozen": false, "img": "assets/turkey-breast.jpg", "bogo": true}, {"store": "Publix", "n": "Chobani Flip Greek Yogurt, 4.5 oz, or 20g Protein Yogurt, 6.7 oz cup, or 15g Protein Drink, 7 oz bot", "p": "4/$5", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/generic-greek-yogurt.jpg", "bogo": true}, {"store": "Publix", "n": "Fage Sour Cream, 14 or 16 oz", "p": "2/$5", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/happy-farms-cream-cheese.jpg", "bogo": true}, {"store": "Publix", "n": "Kerrygold Imported Irish Butter, 7.5 or 8 oz tub", "p": "2/$10", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/generic-butter.png", "bogo": true}, {"store": "Publix", "n": "Kraft American Singles, Yellow, White, or 2% Milk Reduced Fat, 14.7 or 16 oz, or Deli Deluxe American Cheese Slices, 12 oz", "p": "$4.49", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/cheese-slices.jpg", "bogo": false}, {"store": "Publix", "n": "Publix Whipped Dairy Topping, 14 oz can", "p": "$4.79", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/generic-milk.jpg", "bogo": false}, {"store": "Publix", "n": "Sargento Mighty Bites Snack Kit, 2.8 oz tray", "p": "2/$5", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/sargento.png", "bogo": true}, {"store": "Publix", "n": "Sargento String Cheese, or Cheese Sticks, 9 to 12 oz", "p": "B2G1", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/string-cheese.jpg", "bogo": true}, {"store": "Publix", "n": "Belgioioso Burrata Cheese, 8 oz", "p": "$4.99", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/cheese-wedge.jpg", "bogo": false}, {"store": "Publix", "n": "Belgioioso Burrata Cup, 16 oz", "p": "$8.99", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/cheese-cubes.jpg", "bogo": false}, {"store": "Publix", "n": "Boar's Head Brown Sugar & Spice Delight Ham", "p": "$11.99/lb", "d": "", "category": "Pork", "date": "", "organic": false, "frozen": false, "img": "assets/ham-steak.jpg", "bogo": false}, {"store": "Publix", "n": "Boar's Head Colby Jack Cheese", "p": "$8.99/lb", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/cheese-wedge.jpg", "bogo": false}, {"store": "Publix", "n": "Boar's Head Ovengold Roasted Turkey Breast, Solid White Turkey Breast", "p": "$13.99/lb", "d": "", "category": "Poultry", "date": "", "organic": false, "frozen": false, "img": "assets/turkey-breast.jpg", "bogo": false}, {"store": "Publix", "n": "Publix Hot Honey Ham", "p": "$7.99/lb", "d": "", "category": "Pork", "date": "", "organic": false, "frozen": false, "img": "assets/diced-ham.png", "bogo": false}, {"store": "Publix", "n": "Publix Provolone", "p": "$5.99/lb", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/lactaid-milk.jpg", "bogo": false}, {"store": "Publix", "n": "Publix Smoked Pulled Pork, Seasoned With Paprika, Brown Sugar, Garlic, and Onion, Hot, Ready-to-Eat", "p": "$8.99/lb", "d": "", "category": "Pork", "date": "", "organic": false, "frozen": false, "img": "assets/pulled-pork.jpg", "bogo": false}, {"store": "Publix", "n": "4C Grated Cheese, 6 oz jar, (Excluding 100% Pecorino Romano)", "p": "2/$7", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/cheese-cubes.jpg", "bogo": true}, {"store": "Publix", "n": "Bumble Bee Wild Caught Tuna, Seasoned or Light, 2.5 oz pouch", "p": "$1", "d": "", "category": "Seafood", "date": "", "organic": false, "frozen": false, "img": "assets/swai.jpg", "bogo": false}, {"store": "Publix", "n": "Ball Park Franks, 15 oz, (Excluding Beef, Angus, Deli Style, and Smoked White Turkey)", "p": "$3", "d": "", "category": "Pork", "date": "", "organic": false, "frozen": false, "img": "assets/pork-ribs.png", "bogo": false}, {"store": "Publix", "n": "Boneless Top Sirloin Steak", "p": "$6.99/lb", "d": "", "category": "Beef", "date": "", "organic": false, "frozen": false, "img": "assets/top-sirloin.jpg", "bogo": false}, {"store": "Publix", "n": "Butterball Ground Turkey, 93% Lean, 16 oz tray", "p": "2/$9", "d": "", "category": "Poultry", "date": "", "organic": false, "frozen": false, "img": "assets/ground-turkey.jpg", "bogo": true}, {"store": "Publix", "n": "Diluigi Smashables Diner Style Beef Patties, 18 oz tray", "p": "$9.99", "d": "", "category": "Beef", "date": "", "organic": false, "frozen": false, "img": "assets/ground-beef.jpg", "bogo": false}, {"store": "Publix", "n": "GreenWise Angus Top Sirloin Fillet", "p": "$13.99/lb", "d": "", "category": "Beef", "date": "", "organic": false, "frozen": false, "img": "assets/top-sirloin.jpg", "bogo": false}, {"store": "Publix", "n": "GreenWise Angus Top Sirloin Steak, Boneless", "p": "$12.99/lb", "d": "", "category": "Beef", "date": "", "organic": false, "frozen": false, "img": "assets/top-sirloin.jpg", "bogo": false}, {"store": "Publix", "n": "GreenWise Ground Chuck Burgers", "p": "$9.49/lb", "d": "", "category": "Beef", "date": "", "organic": false, "frozen": false, "img": "assets/ground-turkey.jpg", "bogo": false}, {"store": "Publix", "n": "GreenWise Ground Chuck", "p": "$8.99/lb", "d": "", "category": "Beef", "date": "", "organic": false, "frozen": false, "img": "assets/ground-turkey.jpg", "bogo": false}, {"store": "Publix", "n": "Ground Sirloin Burgers or Slider Burgers", "p": "$8.99/lb", "d": "", "category": "Beef", "date": "", "organic": false, "frozen": false, "img": "assets/ground-beef.jpg", "bogo": false}, {"store": "Publix", "n": "Ground Sirloin, 3-lb or More", "p": "$7.99/lb", "d": "", "category": "Beef", "date": "", "organic": false, "frozen": false, "img": "assets/ground-turkey.jpg", "bogo": false}, {"store": "Publix", "n": "Perdue Ground Chicken, 16 oz", "p": "2/$9", "d": "", "category": "Poultry", "date": "", "organic": false, "frozen": false, "img": "assets/chicken-strips.jpg", "bogo": true}, {"store": "Publix", "n": "Publix Beer Bratwurst, Made With Real Beer, Limited Edition, 20 oz", "p": "$5.69", "d": "", "category": "Pork", "date": "", "organic": false, "frozen": false, "img": "assets/lamb-chops.jpg", "bogo": false}, {"store": "Publix", "n": "Publix Boneless Skinless Chicken Breast Cutlets, Cilantro-Lime-Marinated, 1.5-lb", "p": "$8.49", "d": "", "category": "Poultry", "date": "", "organic": false, "frozen": false, "img": "assets/chicken.jpg", "bogo": false}, {"store": "Publix", "n": "Publix Boneless Skinless Chicken Breast Cutlets, Italian-Style-Marinated, 1.5-lb", "p": "$8.49", "d": "", "category": "Poultry", "date": "", "organic": false, "frozen": false, "img": "assets/chicken-strips.jpg", "bogo": false}, {"store": "Publix", "n": "Publix Chicken Breast Kabobs, With Vegetables", "p": "$11.99/lb", "d": "", "category": "Poultry", "date": "", "organic": false, "frozen": false, "img": "assets/turkey-breast.jpg", "bogo": false}, {"store": "Publix", "n": "Publix Ground Pork, 80/20", "p": "$3.49/lb", "d": "", "category": "Pork", "date": "", "organic": false, "frozen": false, "img": "assets/pork.jpg", "bogo": false}, {"store": "Publix", "n": "Publix Top Sirloin Beef Kabobs, With Vegetables", "p": "$13.99/lb", "d": "", "category": "Beef", "date": "", "organic": false, "frozen": false, "img": "assets/top-sirloin.jpg", "bogo": false}, {"store": "Publix", "n": "Publix Whole Pork Picnic", "p": "$1.99/lb", "d": "", "category": "Pork", "date": "", "organic": false, "frozen": false, "img": "assets/pork-tenderloin.jpg", "bogo": false}, {"store": "Publix", "n": "Shoulder London Broil", "p": "$7.99/lb", "d": "", "category": "Beef", "date": "", "organic": false, "frozen": false, "img": "assets/ribeye.jpg", "bogo": false}, {"store": "Publix", "n": "Top Blade Roast", "p": "$10.99/lb", "d": "", "category": "Beef", "date": "", "organic": false, "frozen": false, "img": "assets/beef-roast.jpg", "bogo": false}, {"store": "Publix", "n": "Top Round London Broil", "p": "$7.99/lb", "d": "", "category": "Beef", "date": "", "organic": false, "frozen": false, "img": "assets/top-sirloin.jpg", "bogo": false}, {"store": "Publix", "n": "Top Sirloin Fillet", "p": "$8.99/lb", "d": "", "category": "Beef", "date": "", "organic": false, "frozen": false, "img": "assets/top-sirloin.jpg", "bogo": false}, {"store": "Publix", "n": "Bartlett Pears", "p": "$1.99/lb", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/baby-carrots.png", "bogo": false}, {"store": "Publix", "n": "Beefsteak Tomatoes", "p": "$1.99/lb", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/avocado.jpg", "bogo": false}, {"store": "Publix", "n": "Broccoli", "p": "2/$6", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/watermelon.jpg", "bogo": true}, {"store": "Publix", "n": "Brussels Sprouts", "p": "2/$5", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/squash.jpg", "bogo": true}, {"store": "Publix", "n": "Cotton Candy Grapes", "p": "$4.99/lb", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/grapes.jpg", "bogo": false}, {"store": "Publix", "n": "Fall Hard Squash, Acorn, Butternut, Buttercup or Spaghetti, or Pie Pumpkins", "p": "$1.29/lb", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/squash.jpg", "bogo": false}, {"store": "Publix", "n": "Fresh Attitude Spring Mix, or Half and Half, Hearty Harvest, Baby Spinach, or Arugula, 5 oz", "p": "3/$10", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/baby-carrots.png", "bogo": true}, {"store": "Publix", "n": "GreenWise Organic Red Seedless Grapes, or White", "p": "$3.49/lb", "d": "", "category": "Produce", "date": "", "organic": true, "frozen": false, "img": "assets/grapes.jpg", "bogo": false}, {"store": "Publix", "n": "Heirloom Pumpkins", "p": "$7.99", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/salad.jpg", "bogo": false}, {"store": "Publix", "n": "Incrediblefresh Pico de Gallo, Mild or Medium, 16 oz", "p": "2/$7", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/diced-vegetables.jpg", "bogo": true}, {"store": "Publix", "n": "Large Pumpkins", "p": "$7.99", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/carrots.png", "bogo": false}, {"store": "Publix", "n": "Mandarins, 3-lb bag", "p": "$5.99", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/berries.jpg", "bogo": false}, {"store": "Publix", "n": "Moon or Gum Drops Grapes", "p": "$3.49/lb", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/grapes.jpg", "bogo": false}, {"store": "Publix", "n": "Navel Oranges", "p": "$1.99/lb", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/avocado.jpg", "bogo": false}, {"store": "Publix", "n": "Pomegranates", "p": "3/$10", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/apples.png", "bogo": true}, {"store": "Publix", "n": "Publix Baby Spinach, 6 oz", "p": "2/$6", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/baby-carrots.png", "bogo": true}, {"store": "Publix", "n": "Publix Russet Potatoes, 5-lb bag", "p": "$3.99", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/watermelon.jpg", "bogo": false}, {"store": "Publix", "n": "Publix Sliced Baby Bella Mushrooms, 8 oz", "p": "2/$4", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/baby-carrots.png", "bogo": true}, {"store": "Publix", "n": "Publix White Mushrooms, Whole, 8 oz", "p": "2/$4", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/salad.jpg", "bogo": true}, {"store": "Publix", "n": "Red or White Seedless Grapes", "p": "$2.99/lb", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/grapes.jpg", "bogo": false}, {"store": "Publix", "n": "Red, Yellow, or Orange Bell Peppers", "p": "$2.99/lb", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/diced-vegetables.jpg", "bogo": false}, {"store": "Publix", "n": "Sweet Onions, 3-lb bag", "p": "$4.99", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/carrots.png", "bogo": false}, {"store": "Publix", "n": "Tastee Caramel Apples, 3 ct", "p": "$3.99", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/apples.png", "bogo": false}, {"store": "Publix", "n": "Zucchini or Yellow Squash Tray, 24 oz tray", "p": "$3.99", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/squash.jpg", "bogo": false}, {"store": "Publix", "n": "Bacon Cheddar Salmon Burgers, Ready for the Grill, 5.5 oz", "p": "$3", "d": "", "category": "Seafood", "date": "", "organic": false, "frozen": false, "img": "assets/salmon.jpg", "bogo": false}, {"store": "Publix", "n": "Bluehouse Atlantic Salmon Fillets", "p": "$12.99/lb", "d": "", "category": "Seafood", "date": "", "organic": false, "frozen": false, "img": "assets/salmon.jpg", "bogo": false}, {"store": "Publix", "n": "Circle Seafoods Alaska Pink Salmon, Frozen, 12 oz", "p": "$7.99", "d": "", "category": "Seafood", "date": "", "organic": false, "frozen": true, "img": "assets/salmon.jpg", "bogo": false}, {"store": "Publix", "n": "Florida Pink Shrimp, Jumbo, 16 to 20 per Pound, Previously Frozen", "p": "$16.99/lb", "d": "", "category": "Seafood", "date": "", "organic": false, "frozen": true, "img": "assets/shrimp.jpg", "bogo": false}, {"store": "Publix", "n": "GreenWise Cod Loins, Frozen, 10 oz", "p": "$14.99", "d": "", "category": "Seafood", "date": "", "organic": false, "frozen": true, "img": "assets/surimi.jpg", "bogo": false}, {"store": "Publix", "n": "GreenWise Flounder Fillets, Frozen, 12 oz", "p": "$7.99", "d": "", "category": "Seafood", "date": "", "organic": false, "frozen": true, "img": "assets/fish-fillets.png", "bogo": false}, {"store": "Publix", "n": "GreenWise Snow Crab Clusters, Previously Frozen", "p": "$13.99/lb", "d": "", "category": "Seafood", "date": "", "organic": false, "frozen": true, "img": "assets/snow-crab.jpg", "bogo": false}, {"store": "Publix", "n": "Salmon Select Cuts, Brown Sugar Glazed, 5.5 oz", "p": "$7.99", "d": "", "category": "Seafood", "date": "", "organic": false, "frozen": false, "img": "assets/salmon.jpg", "bogo": false}, {"store": "Publix", "n": "White Shrimp, Large, 31 to 35 per Pound, Previously Frozen", "p": "$7.99/lb", "d": "", "category": "Seafood", "date": "", "organic": false, "frozen": true, "img": "assets/shrimp.jpg", "bogo": false}, {"store": "Publix", "n": "White Shrimp, Peeled & Deveined, Large, 31 to 40 per Pound", "p": "$8.99/lb", "d": "", "category": "Seafood", "date": "", "organic": false, "frozen": false, "img": "assets/shrimp.jpg", "bogo": false}, {"store": "Publix", "n": "Publix Pork Picnic, Half", "p": "$2.49/lb", "d": "", "category": "Pork", "date": "", "organic": false, "frozen": false, "img": "assets/pork-shoulder.jpg", "bogo": false}, {"store": "Publix", "n": "Publix Spinach, Fresh & Tender, 9 oz", "p": "$1.49", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/berries.jpg", "bogo": false}, {"store": "Publix", "n": "Publix Whole Pork Picnic", "p": "$1.99/lb", "d": "", "category": "Pork", "date": "", "organic": false, "frozen": false, "img": "assets/pork-ribs.png", "bogo": false}, {"store": "Publix", "n": "Sargento Cheese Slices, 6 to 8 oz", "p": "2/$7", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/cheese-slices.jpg", "bogo": true}, {"store": "Sprouts", "n": "Sprouts all-natural grass-fed 85% lean or grain-fed 93% lean ground beef", "p": "$9.49/lb", "d": "", "category": "Beef", "date": "", "organic": false, "frozen": false, "img": "assets/ground-beef.jpg", "bogo": false}, {"store": "Sprouts", "n": "New Zealand 100% grass-fed ground lamb, 16 oz.", "p": "$9.99", "d": "", "category": "Lamb", "date": "", "organic": false, "frozen": false, "img": "assets/lamb-neck.jpg", "bogo": false}, {"store": "Sprouts", "n": "Sprouts organic chicken breasts", "p": "", "d": "Buy one get 50% off", "category": "Poultry", "date": "", "organic": true, "frozen": false, "img": "assets/chicken.jpg", "bogo": true}, {"store": "Sprouts", "n": "Sprouts premium marinated beef or chicken skewers", "p": "", "d": "10% off", "category": "Beef", "date": "", "organic": false, "frozen": false, "img": "assets/beef-roast.jpg", "bogo": false}, {"store": "Sprouts", "n": "Sprouts all-natural pork ribs baby back or St. Louis style", "p": "", "d": "Buy one get 50% off", "category": "Pork", "date": "", "organic": false, "frozen": false, "img": "assets/pork-ribs.png", "bogo": true}, {"store": "Sprouts", "n": "True Story organic grass-fed uncured beef hot dogs", "p": "", "d": "Buy one get 50% off", "category": "Beef", "date": "", "organic": true, "frozen": false, "img": "assets/beef-roast.jpg", "bogo": true}, {"store": "Sprouts", "n": "Applegate hot dogs or dinner sausage", "p": "", "d": "15% off", "category": "Pork", "date": "", "organic": false, "frozen": false, "img": "assets/sausage.jpg", "bogo": false}, {"store": "Sprouts", "n": "Force of Nature 100% grass-fed beef or chicken", "p": "", "d": "Buy one get 50% off", "category": "Beef", "date": "", "organic": false, "frozen": false, "img": "assets/ground-beef.jpg", "bogo": true}, {"store": "Sprouts", "n": "Organic Kiwifruit, 1-lb Clamshell (Green, Red or Zespri Sungold)", "p": "$5.99–$6.99", "d": "buy one get 50% off", "category": "Produce", "date": "", "organic": true, "frozen": false, "img": "assets/dl-01.png", "bogo": true}, {"store": "Sprouts", "n": "California Organic Autumn Crisp or Premium Red Seedless Grapes, 2-lb Clamshell", "p": "$7.99", "d": "buy one get 50% off", "category": "Produce", "date": "", "organic": true, "frozen": false, "img": "assets/dl-02.png", "bogo": true}, {"store": "Sprouts", "n": "All Bagged Avocados (Includes Organic)", "p": "$3.99–$6.99", "d": "buy one get 50% off", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/dl-03.png", "bogo": true}, {"store": "Sprouts", "n": "Jumbo Blueberries, 9.8 oz", "p": "$7.49", "d": "buy one get 50% off", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/dl-04.png", "bogo": true}, {"store": "Sprouts", "n": "Organic Blackberries 5.6 oz or Raspberries 6 oz", "p": "$4.99–$5.00", "d": "buy one get 50% off", "category": "Produce", "date": "", "organic": true, "frozen": false, "img": "assets/dl-05.png", "bogo": true}, {"store": "Sprouts", "n": "Organic Honeycrisp Apples", "p": "$2.98/lb", "d": "25% off (was ~$1.68 ea)", "category": "Produce", "date": "", "organic": true, "frozen": false, "img": "assets/apples.png", "bogo": false}, {"store": "Sprouts", "n": "Organic Gala Apples, 3-lb Bag", "p": "$5.99", "d": "buy one get 50% off", "category": "Produce", "date": "", "organic": true, "frozen": false, "img": "assets/dl-07.png", "bogo": true}, {"store": "Sprouts", "n": "Extra-Large Heirloom Pumpkins", "p": "$9.99 ea", "d": "everyday low price", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/avocado.jpg", "bogo": false}, {"store": "Sprouts", "n": "Wholesum Organic On-the-Vine Tomatoes, 1 lb", "p": "$3.99", "d": "buy one get 50% off", "category": "Produce", "date": "", "organic": true, "frozen": false, "img": "assets/dl-08.png", "bogo": true}, {"store": "Sprouts", "n": "Organic Lemons or Limes, 2-lb Bag", "p": "$5.99", "d": "buy one get 50% off", "category": "Produce", "date": "", "organic": true, "frozen": false, "img": "assets/dl-09.png", "bogo": true}, {"store": "Winn-Dixie", "n": "100% All Natural Fresh Boneless Skinless Chicken Breast Value Pack", "p": "$1.99 lb", "d": "", "category": "Poultry", "date": "", "organic": false, "frozen": false, "img": "assets/chicken-strips.jpg", "bogo": false}, {"store": "Winn-Dixie", "n": "USDA Choice Beef Boneless Top Round London Broil or Roast", "p": "$6.99 lb", "d": "", "category": "Beef", "date": "", "organic": false, "frozen": false, "img": "assets/beef-roast.jpg", "bogo": false}, {"store": "Winn-Dixie", "n": "California Red, Green or Black Seedless Grapes", "p": "$1.99 lb", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/grapes.jpg", "bogo": false}, {"store": "Winn-Dixie", "n": "5 lb Bag Russet or Red Potatoes", "p": "$2.49", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/watermelon.jpg", "bogo": false}, {"store": "Winn-Dixie", "n": "Fisherman's Wharf Raw or Cooked Shrimp 16 oz", "p": "$7.99", "d": "", "category": "Seafood", "date": "", "organic": false, "frozen": false, "img": "assets/shrimp.jpg", "bogo": false}, {"store": "Winn-Dixie", "n": "Marzetti Caramel Apple Dips 13.5 oz or Pie Pumpkins", "p": "$3.99", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/salad.jpg", "bogo": false}, {"store": "Winn-Dixie", "n": "Jack O'Lantern Pumpkins", "p": "$5.99", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/diced-vegetables.jpg", "bogo": false}, {"store": "Winn-Dixie", "n": "Organic Red or Green Seedless Grapes", "p": "$3.69 lb", "d": "", "category": "Produce", "date": "", "organic": true, "frozen": false, "img": "assets/grapes.jpg", "bogo": false}, {"store": "Winn-Dixie", "n": "Hass Avocados from Mexico", "p": "5/$5", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/carrots.png", "bogo": true}, {"store": "Winn-Dixie", "n": "Honeycrisp Apples or Bartlett Pears", "p": "$1.99 lb", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/apples.png", "bogo": false}, {"store": "Winn-Dixie", "n": "Blueberries, Blackberries or Raspberries 6 oz", "p": "2/$7", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/berries.jpg", "bogo": true}, {"store": "Winn-Dixie", "n": "Romaine Hearts 3 ct or Cauliflower or Broccoli Bunch", "p": "$3.49", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/avocado.jpg", "bogo": false}, {"store": "Winn-Dixie", "n": "Know & Love Green Beans, Okra, Yellow, Zucchini or Mix Squash 12-24 oz or Vine Ripe Tomatoes 4 ct", "p": "2/$6", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/squash.jpg", "bogo": true}, {"store": "Winn-Dixie", "n": "Know & Love Whole or Sliced White Mushrooms 8 oz", "p": "2/$4", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/watermelon.jpg", "bogo": true}, {"store": "Winn-Dixie", "n": "Red, Yellow or Orange Bell Peppers", "p": "2/$3", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/salad.jpg", "bogo": true}, {"store": "Winn-Dixie", "n": "Dole Salad Kits 8-13.6 oz or Know & Love Organic Salad Blends 5 oz", "p": "2/$8", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/salad.jpg", "bogo": true}, {"store": "Winn-Dixie", "n": "3 lb Bag Mandarin, Navel or Cara Cara Oranges", "p": "$5.99", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/diced-vegetables.jpg", "bogo": false}, {"store": "Winn-Dixie", "n": "Know & Love Organic Salads 16 oz", "p": "2/$12", "d": "", "category": "Produce", "date": "", "organic": true, "frozen": false, "img": "assets/carrots.png", "bogo": true}, {"store": "Winn-Dixie", "n": "USDA Choice Beef Boneless Top Round Steak", "p": "$8.99 lb", "d": "", "category": "Beef", "date": "", "organic": false, "frozen": false, "img": "assets/ham-steak.jpg", "bogo": false}, {"store": "Winn-Dixie", "n": "Bone-In or Boneless Pork Shoulder Blade Steaks or Country Style Ribs", "p": "BOGO", "d": "", "category": "Pork", "date": "", "organic": false, "frozen": false, "img": "assets/pork-shoulder.jpg", "bogo": true}, {"store": "Winn-Dixie", "n": "Know & Love Chicken Drumsticks or Thighs USDA Grade A", "p": "BOGO", "d": "", "category": "Poultry", "date": "", "organic": false, "frozen": false, "img": "assets/chicken.jpg", "bogo": true}, {"store": "Winn-Dixie", "n": "Fisherman's Wharf Bay Scallops 12 oz", "p": "$7.99", "d": "", "category": "Seafood", "date": "", "organic": false, "frozen": false, "img": "assets/scallops.jpg", "bogo": false}, {"store": "Winn-Dixie", "n": "USDA Choice Beef Boneless Top Sirloin Steak", "p": "$11.99 lb", "d": "", "category": "Beef", "date": "", "organic": false, "frozen": false, "img": "assets/top-sirloin.jpg", "bogo": false}, {"store": "Winn-Dixie", "n": "USDA Choice Beef Boneless Stir Fry", "p": "$12.99 lb", "d": "", "category": "Beef", "date": "", "organic": false, "frozen": false, "img": "assets/ground-beef.jpg", "bogo": false}, {"store": "Winn-Dixie", "n": "Carando Meatballs 16 oz or Johnsonville Sausage 19 oz", "p": "2/$12", "d": "", "category": "Pork", "date": "", "organic": false, "frozen": false, "img": "assets/sausage.jpg", "bogo": true}, {"store": "Winn-Dixie", "n": "Whole Snapper", "p": "$7.99 lb", "d": "", "category": "Seafood", "date": "", "organic": false, "frozen": false, "img": "assets/snapper.jpg", "bogo": false}, {"store": "Winn-Dixie", "n": "Armour LunchMakers 2-3.3 oz or Cacique Chorizo 9 oz", "p": "4/$5", "d": "", "category": "Pork", "date": "", "organic": false, "frozen": false, "img": "assets/cooked-ham.jpg", "bogo": true}, {"store": "Winn-Dixie", "n": "Prime Boneless Pork Chops 16 oz", "p": "BOGO", "d": "", "category": "Pork", "date": "", "organic": false, "frozen": false, "img": "assets/lamb-chops.jpg", "bogo": true}, {"store": "Winn-Dixie", "n": "Fisherman's Wharf Raw Shrimp 16 oz", "p": "$7.99", "d": "", "category": "Seafood", "date": "", "organic": false, "frozen": false, "img": "assets/shrimp.jpg", "bogo": false}, {"store": "Winn-Dixie", "n": "Aidells Link Sausage 12 oz, Hillshire Farm Lunchmeat Tubs 7-9 oz or Carolina Pride Chopped Ham 20 oz", "p": "$5.99", "d": "", "category": "Pork", "date": "", "organic": false, "frozen": false, "img": "assets/diced-ham.png", "bogo": false}, {"store": "Winn-Dixie", "n": "Realtree Smoked, Baby Link or Boudin Sausage 12-14 oz", "p": "2/$8", "d": "", "category": "Pork", "date": "", "organic": false, "frozen": false, "img": "assets/sausage.jpg", "bogo": true}, {"store": "Winn-Dixie", "n": "Hillshire Farm Ultra Thin Lunchmeat 22 oz, Pilgrim's Crispy or Buffalo Wings 19.2 oz or Just Bare Lightly Breaded Chicken Bites, Strips or Fillets 22-24 oz", "p": "$9.99", "d": "", "category": "Poultry", "date": "", "organic": false, "frozen": false, "img": "assets/chicken-strips.jpg", "bogo": false}, {"store": "Winn-Dixie", "n": "Cold Water Lobster Tail 3 oz", "p": "$7.99", "d": "", "category": "Seafood", "date": "", "organic": false, "frozen": false, "img": "assets/tilapia.jpg", "bogo": false}, {"store": "Winn-Dixie", "n": "Dietz & Watson American Cheese, Salami or Pepperoni", "p": "$4.99 lb", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/string-cheese.jpg", "bogo": false}, {"store": "Winn-Dixie", "n": "Birds Eye Frozen Vegetables 9.3-16 oz", "p": "2/$5", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": true, "img": "assets/diced-vegetables.jpg", "bogo": true}, {"store": "Winn-Dixie", "n": "Cabot Cheese Slices 7 oz, Simply Fruit Drinks or Lemonade 52 oz or Pillsbury Grands Biscuits, Crescents or Cinnamon Rolls 8 ct", "p": "2/$6", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/cheese-slices.jpg", "bogo": true}, {"store": "Winn-Dixie", "n": "Know & Love Cream Cheese Twin Pack 16 oz, Califia Farms Cold Brew Coffee or Creamer 25.4-48 oz", "p": "$3.99", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/happy-farms-cream-cheese.jpg", "bogo": false}, {"store": "Winn-Dixie", "n": "Chobani Creations, Zero Sugar or Greek Yogurt Cups 5.3 oz", "p": "10/$10", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/generic-greek-yogurt.jpg", "bogo": true}, {"store": "Winn-Dixie", "n": "SE Grocers Salads 15-16 oz", "p": "$2.99", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/berries.jpg", "bogo": false}, {"store": "Winn-Dixie", "n": "Michael Angelo's Family Size Entrées 25-32 oz or Gorton's Fish Sticks or Fillets 24.5 oz", "p": "$6.99", "d": "", "category": "Seafood", "date": "", "organic": false, "frozen": false, "img": "assets/fish-fillets.png", "bogo": false}, {"store": "Winn-Dixie", "n": "Light + Fit Greek Yogurt, Oikos Greek Yogurt 4 ct, Yoplait Protein Yogurt 5.6 oz or Red Barn Butter 16 oz", "p": "BOGO", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/generic-greek-yogurt.jpg", "bogo": true}, {"store": "Winn-Dixie", "n": "STōK Cold Brew 48 oz, Nellie's Free Range Large Brown Eggs Dozen or La Chona Quesadilla Shreds or Cotija Cheese 16 oz", "p": "$4.99", "d": "", "category": "Eggs", "date": "", "organic": false, "frozen": false, "img": "assets/eggs.jpg", "bogo": false}, {"store": "Winn-Dixie", "n": "SE Grocers Half & Half 16 oz", "p": "$0.99", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/generic-milk.jpg", "bogo": false}, {"store": "Winn-Dixie", "n": "Jell-O Cups 4 ct, Planet Oat Oatmilk 52 oz or Kraft Singles 8 oz", "p": "2/$6", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/generic-butter.png", "bogo": true}, {"store": "Winn-Dixie", "n": "Velveeta Cheese Loaf 2 lb", "p": "$8.49", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/shredded-cheese.jpg", "bogo": false}, {"store": "Winn-Dixie", "n": "Plainville Farms 94% Ground Turkey or Turkey Burgers 16 oz", "p": "2/$10", "d": "", "category": "Poultry", "date": "", "organic": false, "frozen": false, "img": "assets/ground-turkey.jpg", "bogo": true}, {"store": "Winn-Dixie", "n": "Know & Love Diced Vegetables 3.5-8 oz", "p": "3/$10", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/diced-vegetables.jpg", "bogo": true}, {"store": "Winn-Dixie", "n": "Kraft Shredded or Chunk Cheese 16 oz", "p": "$4.99", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/shredded-cheese.jpg", "bogo": false}, {"store": "Winn-Dixie", "n": "SE Grocers Sour Cream 8 oz", "p": "2/$2", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/happy-farms-cream-cheese.jpg", "bogo": true}, {"store": "Winn-Dixie", "n": "Hillshire Farm Meat Smoked Rope Sausage 13-14 oz or Uncle John's Smoked Sausage 14-16 oz", "p": "2/$10", "d": "", "category": "Pork", "date": "", "organic": false, "frozen": false, "img": "assets/sausage.jpg", "bogo": true}, {"store": "Winn-Dixie", "n": "Rosina Meatballs 20-26 oz", "p": "BOGO", "d": "", "category": "Beef", "date": "", "organic": false, "frozen": false, "img": "assets/ribeye.jpg", "bogo": true}, {"store": "Winn-Dixie", "n": "Coffee mate Creamer 32 oz", "p": "2/$6", "d": "", "category": "Dairy", "date": "", "organic": false, "frozen": false, "img": "assets/sargento.png", "bogo": true}, {"store": "Aldi", "n": "Fresh Family Pack Chicken Wings", "p": "$2.49/lb", "d": "", "category": "Poultry", "date": "", "organic": false, "frozen": false, "img": "assets/turkey-wings.webp", "bogo": false}, {"store": "Aldi", "n": "Fresh St. Louis Pork Ribs", "p": "$2.49/lb", "d": "", "category": "Pork", "date": "", "organic": false, "frozen": false, "img": "assets/pork-ribs.png", "bogo": false}, {"store": "Aldi", "n": "Fresh Ground Beef Chub 5 lb", "p": "$17.95", "d": "$3.59/lb", "category": "Beef", "date": "", "organic": false, "frozen": false, "img": "assets/ground-beef.jpg", "bogo": false}, {"store": "Aldi", "n": "Fresh Seasoned Chicken Patties 16 oz", "p": "$3.99", "d": "", "category": "Poultry", "date": "", "organic": false, "frozen": false, "img": "assets/chicken.jpg", "bogo": false}, {"store": "Aldi", "n": "Fresh Seasoned Beef Skewers 7 oz", "p": "$5.99", "d": "", "category": "Beef", "date": "", "organic": false, "frozen": false, "img": "assets/beef-roast.jpg", "bogo": false}, {"store": "Aldi", "n": "Cattlemen's Ranch Frozen Black Angus Beef Patties 2 lb", "p": "$9.49", "d": "", "category": "Beef", "date": "", "organic": false, "frozen": true, "img": "assets/beef-roast.jpg", "bogo": false}, {"store": "Aldi", "n": "Fresh Organic 85/15 Grass-Fed Ground Beef", "p": "$5.99/lb", "d": "", "category": "Beef", "date": "", "organic": true, "frozen": false, "img": "assets/ground-beef.jpg", "bogo": false}, {"store": "Aldi", "n": "Large Pumpkins", "p": "$3.95", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/baby-carrots.png", "bogo": false}, {"store": "Aldi", "n": "Honeycrisp Apples, 2-lb bag", "p": "$1.99", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/apples.png", "bogo": false}, {"store": "Aldi", "n": "Green Grapes", "p": "$1.29/lb", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/grapes.jpg", "bogo": false}, {"store": "Aldi", "n": "Butternut, Delicata or Spaghetti Squash", "p": "$0.89/lb", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/squash.jpg", "bogo": false}, {"store": "Aldi", "n": "Multi-Colored Peppers, 3 ct", "p": "$2.49", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/avocado.jpg", "bogo": false}, {"store": "Aldi", "n": "Baby Bella Mushrooms, 8 oz", "p": "$1.29", "d": "", "category": "Produce", "date": "", "organic": false, "frozen": false, "img": "assets/baby-carrots.png", "bogo": false}];
+</script>
+<script>
+(function () {
+  const searchInput = document.getElementById('searchInput');
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const liveCount = document.getElementById('liveCount');
+  const storesRow = document.getElementById('storesRow');
+  const checked = new Set();
+  let searchTerm = '';
+  let activeFilter = 'All';
+  let imageCheckGeneration = 0;
+
+  const categoryOrder = ["Beef", "Pork", "Poultry", "Seafood", "Eggs", "Dairy", "Produce", "Lamb", "Plant-Based"];
+
+  function isBOGO(deal) { return deal.bogo===true || /\bBOGO\b|buy-one-get-50%-off/i.test(deal.d + ' ' + deal.p); }
+  function isMulti(deal) { return isBOGO(deal) || /multi-buy|\d+\s*for\s*\$|\d+\s*\/\s*\$/i.test(deal.d + ' ' + deal.p); }
+  function savingsValue(deal) {
+    const m = deal.d.match(/save\s*\$(\d+(?:\.\d+)?)/i);
+    return m ? Number(m[1]) : 0;
+  }
+  function matchesFilter(deal, idx) {
+    const haystack = (deal.n+' '+deal.store+' '+deal.category+' '+deal.p+' '+deal.d).toLowerCase();
+    if (searchTerm && !haystack.includes(searchTerm)) return false;
+    if (activeFilter === 'BOGO') return isBOGO(deal);
+    if (activeFilter === 'Organic') return deal.organic;
+    if (activeFilter === 'My List') return checked.has(idx);
+    return true;
+  }
+  function filteredDeals() {
+    return DEALS.map((deal,idx)=>({deal,idx})).filter(x=>matchesFilter(x.deal,x.idx));
+  }
+  function displayCategories(deal) {
+    const categories=[deal.category];
+    const name=deal.n.toLowerCase();
+    if (name.includes('lamb ')) categories.splice(0,categories.length,'Lamb');
+    if (name.includes('impossible') || name.includes('beyond meat')) categories.splice(0,categories.length,'Plant-Based');
+    if (/beef or chicken/.test(name)) categories.push('Poultry');
+    if (/pork or chicken/.test(name)) categories.push('Poultry');
+    if (/turkey sausage.*bacon|turkey bacon.*sausage/.test(name)) categories.push('Pork');
+    if (/cheese or turkey/.test(name)) categories.push('Poultry');
+    if (/eggs.*butter/.test(name)) categories.push('Dairy');
+    return Array.from(new Set(categories));
+  }
+  function unitPrice(deal) {
+    const p = deal.p.trim();
+    let m = p.match(/^(\d+)\s*\/\s*\$(\d+(?:\.\d+)?)$/);
+    if (m) return '$'+(Number(m[2])/Number(m[1])).toFixed(2)+' each';
+    m = p.match(/^(\d+)\s+for\s+\$(\d+(?:\.\d+)?)$/i);
+    if (m) return '$'+(Number(m[2])/Number(m[1])).toFixed(2)+' each';
+    m = p.match(/^(\d+)\s+lbs?\s+for\s+\$(\d+(?:\.\d+)?)$/i);
+    if (m) return '$'+(Number(m[2])/Number(m[1])).toFixed(2)+'/lb';
+    if (/\/lb/i.test(p)) return p;
+    if (/\bea\.?$/i.test(p)) return p.replace(/\s*ea\.?$/i,'')+' each';
+    if (/no price|price not stated/i.test(p)) return 'Not published';
+    if (/buy-one-get-50%-off/i.test(p)) return 'Second item 50% off';
+    if (isBOGO(deal) && /^\$\d/.test(p)) {
+      const val=Number((p.match(/\d+(?:\.\d+)?/)||[])[0]);
+      return val ? '$'+(val/2).toFixed(2)+' each when buying 2' : p;
+    }
+    return p+' per listed package';
+  }
+  function totalPrice(deal) {
+    const p=deal.p.trim();
+    let m=p.match(/^(\d+)\s*\/\s*\$(\d+(?:\.\d+)?)$/);
+    if (m) return '$'+m[2]+' for '+m[1];
+    m=p.match(/^(\d+)\s+for\s+\$(\d+(?:\.\d+)?)$/i);
+    if (m) return '$'+m[2]+' for '+m[1];
+    m=p.match(/^(\d+)\s+lbs?\s+for\s+\$(\d+(?:\.\d+)?)$/i);
+    if (m) return '$'+m[2]+' for '+m[1]+' lbs';
+    if (/\/lb/i.test(p)) return p+' (total varies by weight)';
+    if (isBOGO(deal) && /^\$\d/.test(p)) return p+' for 2';
+    return p;
+  }
+  function numericUnit(deal) {
+    const u=unitPrice(deal);
+    const m=u.match(/\$(\d+(?:\.\d+)?)/);
+    return m ? Number(m[1]) : Infinity;
+  }
+  function lowestIndices() {
+    const lows=new Set();
+    STORE_ORDER.forEach(store=>{
+      ['Beef','Pork','Poultry','Seafood','Dairy','Eggs','Produce'].forEach(cat=>{
+        const pool=DEALS.map((d,i)=>({d,i})).filter(x=>x.d.store===store && x.d.category===cat && !isMulti(x.d) && Number.isFinite(numericUnit(x.d)));
+        if (!pool.length) return;
+        const min=Math.min(...pool.map(x=>numericUnit(x.d)));
+        pool.filter(x=>numericUnit(x.d)===min).forEach(x=>lows.add(x.i));
+      });
+    });
+    return lows;
+  }
+  const lowSet=lowestIndices();
+
+  function escapeHtml(value) {
+    return String(value).replace(/[&<>'"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+  }
+  function updateCount() {
+    liveCount.textContent = 'Showing '+filteredDeals().length+' of '+DEALS.length+' deals · '+checked.size+' selected';
+  }
+  async function verifyRenderedImages() {
+    const generation=++imageCheckGeneration;
+    const images=Array.from(storesRow.querySelectorAll('img'));
+    storesRow.setAttribute('aria-busy','true');
+    await Promise.all(images.map(img=>img.decode().catch(()=>{})));
+    if (generation!==imageCheckGeneration) return;
+    const loaded=images.filter(img=>img.complete && img.naturalWidth>0 && img.naturalHeight>0);
+    const aldiImages=images.filter(img=>img.closest('.store-col')?.dataset.store==='Aldi');
+    const aldiLoaded=aldiImages.filter(img=>img.complete && img.naturalWidth>0 && img.naturalHeight>0);
+    storesRow.setAttribute('aria-label','Store deals. Image check: '+loaded.length+' of '+images.length+' loaded with dimensions; Aldi '+aldiLoaded.length+' of '+aldiImages.length+'.');
+    storesRow.setAttribute('aria-busy','false');
+  }
+  function makeCard(deal, idx) {
+    const card=document.createElement('div');
+    card.className='card'+(checked.has(idx)?' checked':'')+((isMulti(deal)||savingsValue(deal)>=5)?' hot':'');
+    card.dataset.idx=idx;
+    card.tabIndex=0;
+    card.setAttribute('role','button');
+    card.setAttribute('aria-pressed',checked.has(idx)?'true':'false');
+    card.setAttribute('aria-label',(checked.has(idx)?'Remove ':'Add ')+deal.n+(checked.has(idx)?' from':' to')+' My List');
+    let badges='';
+    if (deal.organic) badges+='<span class="badge organic">Organic</span>';
+    if (isBOGO(deal)) badges+='<span class="badge bogo">BOGO</span>';
+    else if (isMulti(deal)) badges+='<span class="badge bogo">Multi-buy</span>';
+    if (deal.frozen) badges+='<span class="badge frozen">Frozen</span>';
+    if (deal.date) badges+='<span class="badge date">'+escapeHtml(deal.date)+'</span>';
+    if (lowSet.has(idx)) badges+='<span class="badge low">Lowest published price</span>';
+    card.innerHTML='<img src="'+escapeHtml(deal.img)+'" alt="'+escapeHtml(deal.n)+'" loading="eager" decoding="async">'+
+      '<div class="card-body"><div class="name">'+escapeHtml(deal.n)+'</div>'+
+      '<div class="price-line primary"><span>Total</span><strong>'+escapeHtml(totalPrice(deal))+'</strong></div>'+
+      '<div class="price-line"><span>Per unit</span><strong>'+escapeHtml(unitPrice(deal))+'</strong></div>'+
+      (deal.d?'<div class="detail">'+escapeHtml(deal.d)+'</div>':'')+
+      '<div class="category-tag">'+escapeHtml(isBOGO(deal)?'BOGO Deal':deal.category)+'</div><div class="badges">'+badges+'</div></div><div class="checkmark"></div>';
+    function toggle(){ checked.has(idx)?checked.delete(idx):checked.add(idx); render(); }
+    card.addEventListener('click',toggle);
+    card.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();} });
+    return card;
+  }
+  function render() {
+    updateCount();
+    storesRow.innerHTML='';
+    const visible=filteredDeals();
+
+    categoryOrder.forEach(category=>{
+      const categoryDeals=visible.filter(x=>displayCategories(x.deal).includes(category));
+      if (!categoryDeals.length) return;
+
+      const block=document.createElement('section');
+      block.className='category-block';
+      block.setAttribute('aria-labelledby','category-'+category.toLowerCase());
+      block.innerHTML='<div class="category-heading"><h2 id="category-'+category.toLowerCase()+'">'+escapeHtml(category)+'</h2><span>'+categoryDeals.length+' deal'+(categoryDeals.length===1?'':'s')+'</span></div><div class="category-store-grid"></div>';
+      const grid=block.querySelector('.category-store-grid');
+
+      STORE_ORDER.forEach(store=>{
+        const group=categoryDeals.filter(x=>x.deal.store===store);
+        const meta=STORE_META[store];
+        const storeSection=document.createElement('section');
+        storeSection.className='category-store store-col';
+        storeSection.dataset.store=store;
+        storeSection.innerHTML='<div class="store-header"><h3>'+escapeHtml(store)+'</h3><div class="store-meta"><span class="dates">'+escapeHtml(meta.dates)+'</span></div></div><div class="cards"></div>';
+        const cards=storeSection.querySelector('.cards');
+        if (group.length) group.forEach(x=>cards.appendChild(makeCard(x.deal,x.idx)));
+        else cards.innerHTML='<p class="empty-category">No deals this week</p>';
+        grid.appendChild(storeSection);
+      });
+
+      storesRow.appendChild(block);
+    });
+
+    if (!visible.length) {
+      const empty=document.createElement('p');
+      empty.className='empty-results';
+      empty.textContent=activeFilter==='My List' ? 'Your list is empty. Tap any deal to add it.' : 'No deals match this search.';
+      storesRow.appendChild(empty);
+    }
+    verifyRenderedImages();
+  }
+  searchInput.addEventListener('input',e=>{searchTerm=e.target.value.trim().toLowerCase();render();});
+  filterButtons.forEach(btn=>btn.addEventListener('click',()=>{activeFilter=btn.dataset.filter;filterButtons.forEach(b=>b.classList.toggle('active',b===btn));render();}));
+  render();
+})();
+</script>
+</body>
+</html>
