@@ -39,14 +39,6 @@
     {
      "week_id": "2026-10-01",
      "store": "Publix",
-     "comparison_group": "pineapple chunks | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
-     "effective_unit_price": 2.575,
-     "unit_family": "lb",
-     "deal_type": "bogo_free"
-    },
-    {
-     "week_id": "2026-10-01",
-     "store": "Publix",
      "comparison_group": "sweetango apples | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
      "effective_unit_price": 1.5475,
      "unit_family": "lb",
@@ -567,9 +559,41 @@
     {
      "week_id": "2026-10-01",
      "store": "Publix",
-     "comparison_group": "winter squash | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "comparison_group": "acorn squash | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:each",
      "effective_unit_price": 1.29,
-     "unit_family": "lb",
+     "unit_family": "each",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "butternut squash | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:each",
+     "effective_unit_price": 1.29,
+     "unit_family": "each",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "buttercup squash | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:each",
+     "effective_unit_price": 1.29,
+     "unit_family": "each",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "spaghetti squash | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:each",
+     "effective_unit_price": 1.29,
+     "unit_family": "each",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "pie pumpkins | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:each",
+     "effective_unit_price": 1.29,
+     "unit_family": "each",
      "deal_type": "price_cut"
     },
     {
