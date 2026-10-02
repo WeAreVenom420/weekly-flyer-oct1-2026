@@ -1,0 +1,1722 @@
+{
+ "schema_version": 1,
+ "weeks": [
+  {
+   "week_id": "2026-10-01",
+   "rows": [
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "campari tomatoes | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 2.575,
+     "unit_family": "lb",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "kiwi berries | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 6.653333333333333,
+     "unit_family": "lb",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "mini sweet peppers | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 4.15,
+     "unit_family": "lb",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "sliced bell peppers and onions | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 4.12,
+     "unit_family": "lb",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "pineapple chunks | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 2.575,
+     "unit_family": "lb",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "sweetango apples | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 1.5475,
+     "unit_family": "lb",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "vegetable stir fry | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 2.766666666666667,
+     "unit_family": "lb",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "hummus | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 4.12,
+     "unit_family": "lb",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "coffee creamer | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:fl oz",
+     "effective_unit_price": 0.10140625,
+     "unit_family": "fl oz",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "queso dip | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 3.245,
+     "unit_family": "lb",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "shredded cheese | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 3.245,
+     "unit_family": "lb",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "almond creamer | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:fl oz",
+     "effective_unit_price": 0.09359375,
+     "unit_family": "fl oz",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "oat creamer | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:fl oz",
+     "effective_unit_price": 0.09359375,
+     "unit_family": "fl oz",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "coconut milk coffee creamer | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:fl oz",
+     "effective_unit_price": 0.09359375,
+     "unit_family": "fl oz",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "chunk cheese | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 5.24,
+     "unit_family": "lb",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "pepperoni | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 7.44,
+     "unit_family": "lb",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "pepperoni | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 6.2,
+     "unit_family": "lb",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "shaved wagyu beef | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 9.032,
+     "unit_family": "lb",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "beef sticks | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:each",
+     "effective_unit_price": 0.8744999999999999,
+     "unit_family": "each",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": null,
+     "effective_unit_price": 2.8181818181818183,
+     "unit_family": "lb",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": null,
+     "effective_unit_price": 2.995,
+     "unit_family": "lb",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": null,
+     "effective_unit_price": 3.495,
+     "unit_family": "lb",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "mussels | organic:no | frozen:yes | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 2.995,
+     "unit_family": "lb",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "fish fillets | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 9.912,
+     "unit_family": "lb",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "breaded chicken bites | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 4.463333333333334,
+     "unit_family": "lb",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "breaded chicken tenders | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 4.463333333333334,
+     "unit_family": "lb",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "breaded chicken breasts | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 4.463333333333334,
+     "unit_family": "lb",
+     "deal_type": "bogo_free"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "greek yogurt flip | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 4.444444444444445,
+     "unit_family": "lb",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "protein yogurt | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 2.9850746268656714,
+     "unit_family": "lb",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "protein drink | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:fl oz",
+     "effective_unit_price": 0.17857142857142858,
+     "unit_family": "fl oz",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "american cheese slices | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 5.986666666666667,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "whipped dairy topping | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 5.474285714285714,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "cheese snack kit | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 14.285714285714286,
+     "unit_family": "lb",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "burrata cheese | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 9.98,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "burrata cheese | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 8.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "deli ham | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 11.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "colby jack cheese | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 8.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": null,
+     "effective_unit_price": 13.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "deli ham | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 7.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "provolone cheese | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 5.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "smoked pulled pork | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 8.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "grated cheese | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 9.333333333333334,
+     "unit_family": "lb",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "tuna pouch | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 6.4,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "hot dogs | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 3.2,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "top sirloin steak | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 6.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "ground turkey 93/7 | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 4.5,
+     "unit_family": "lb",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "beef patties | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 8.88,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": null,
+     "effective_unit_price": 13.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "angus top sirloin steak | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 12.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "ground chuck burgers | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 9.49,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "ground chuck | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 8.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": null,
+     "effective_unit_price": 8.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": null,
+     "effective_unit_price": 7.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "ground chicken | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 4.5,
+     "unit_family": "lb",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "beer bratwurst | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 4.5520000000000005,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "chicken breast cutlets | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 5.66,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "chicken breast cutlets | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 5.66,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": null,
+     "effective_unit_price": 11.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "ground pork 80/20 | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 3.49,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": null,
+     "effective_unit_price": 13.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": null,
+     "effective_unit_price": 1.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": null,
+     "effective_unit_price": 7.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": null,
+     "effective_unit_price": 10.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": null,
+     "effective_unit_price": 7.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": null,
+     "effective_unit_price": 8.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "bartlett pears | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 1.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "beefsteak tomatoes | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 1.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "broccoli | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:each",
+     "effective_unit_price": 3.0,
+     "unit_family": "each",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "brussels sprouts | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:each",
+     "effective_unit_price": 2.5,
+     "unit_family": "each",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "cotton candy grapes | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 4.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "winter squash | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 1.29,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "spring mix salad | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 10.666666666666668,
+     "unit_family": "lb",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "red seedless grapes | organic:yes | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 3.49,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "white grapes | organic:yes | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 3.49,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "heirloom pumpkins | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:each",
+     "effective_unit_price": 7.99,
+     "unit_family": "each",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "pico de gallo | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 3.5,
+     "unit_family": "lb",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "large pumpkins | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:each",
+     "effective_unit_price": 7.99,
+     "unit_family": "each",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "mandarins | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 1.9966666666666668,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "gum drop grapes | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 3.49,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "navel oranges | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 1.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "pomegranates | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:each",
+     "effective_unit_price": 3.3333333333333335,
+     "unit_family": "each",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "baby spinach | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 8.0,
+     "unit_family": "lb",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "russet potatoes | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 0.798,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "baby bella mushrooms | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 4.0,
+     "unit_family": "lb",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "white mushrooms | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 4.0,
+     "unit_family": "lb",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "red seedless grapes | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 2.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "white seedless grapes | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 2.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "bell peppers | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 2.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "sweet onions | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 1.6633333333333333,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "caramel apples | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:each",
+     "effective_unit_price": 1.33,
+     "unit_family": "each",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "summer squash | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 2.66,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": null,
+     "effective_unit_price": 8.727272727272727,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": null,
+     "effective_unit_price": 12.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": null,
+     "effective_unit_price": 10.653333333333334,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": null,
+     "effective_unit_price": 16.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "cod loins | organic:no | frozen:yes | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 23.984,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "flounder fillets | organic:no | frozen:yes | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 10.653333333333334,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": null,
+     "effective_unit_price": 13.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": null,
+     "effective_unit_price": 23.243636363636366,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": null,
+     "effective_unit_price": 7.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": null,
+     "effective_unit_price": 8.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": null,
+     "effective_unit_price": 2.49,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Publix",
+     "comparison_group": "spinach | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 2.648888888888889,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Walmart",
+     "comparison_group": "ground beef 80/20 | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 4.986,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Walmart",
+     "comparison_group": "ground beef 73/27 | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 3.9939999999999998,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Walmart",
+     "comparison_group": null,
+     "effective_unit_price": 13.44,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Walmart",
+     "comparison_group": "ground beef burgers | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 6.2425,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Walmart",
+     "comparison_group": "ground beef 93/7 | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 6.993333333333333,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Walmart",
+     "comparison_group": "ground beef patties | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 5.9825,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Walmart",
+     "comparison_group": "pork shoulder butt roast | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 3.54,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Walmart",
+     "comparison_group": "butt steak | organic:no | frozen:no | bone_in:yes | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 2.97,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Walmart",
+     "comparison_group": "bacon | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 5.1085714285714285,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Walmart",
+     "comparison_group": "ground turkey 85/15 | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 3.986666666666667,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Walmart",
+     "comparison_group": "atlantic salmon fillet | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 10.64,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Walmart",
+     "comparison_group": "atlantic salmon fillet | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:yes | basis:lb",
+     "effective_unit_price": 9.54,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Walmart",
+     "comparison_group": "bay scallops | organic:no | frozen:yes | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 5.78,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Walmart",
+     "comparison_group": "large brown eggs | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:dozen",
+     "effective_unit_price": 2.62,
+     "unit_family": "dozen",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Walmart",
+     "comparison_group": "hass avocados | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:each",
+     "effective_unit_price": 0.56,
+     "unit_family": "each",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Walmart",
+     "comparison_group": "gala apples | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 0.9066666666666667,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Walmart",
+     "comparison_group": "honeycrisp apples | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 1.78,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Walmart",
+     "comparison_group": "gala apples | organic:yes | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 1.5733333333333333,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Walmart",
+     "comparison_group": "honeycrisp apples | organic:yes | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 3.41,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Sprouts",
+     "comparison_group": "grass-fed ground beef 85/15 | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 9.49,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Sprouts",
+     "comparison_group": "grain-fed ground beef 93/7 | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 9.49,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Sprouts",
+     "comparison_group": null,
+     "effective_unit_price": 9.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Sprouts",
+     "comparison_group": "autumn crisp grapes | organic:yes | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 2.99625,
+     "unit_family": "lb",
+     "deal_type": "bogo_50"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Sprouts",
+     "comparison_group": "red seedless grapes | organic:yes | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 2.99625,
+     "unit_family": "lb",
+     "deal_type": "bogo_50"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Sprouts",
+     "comparison_group": "blueberries | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 9.17142857142857,
+     "unit_family": "lb",
+     "deal_type": "bogo_50"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Sprouts",
+     "comparison_group": "honeycrisp apples | organic:yes | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 2.98,
+     "unit_family": "lb",
+     "deal_type": "pct_off"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Sprouts",
+     "comparison_group": "gala apples | organic:yes | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 1.4974999999999998,
+     "unit_family": "lb",
+     "deal_type": "bogo_50"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Sprouts",
+     "comparison_group": "extra-large heirloom pumpkins | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:each",
+     "effective_unit_price": 9.99,
+     "unit_family": "each",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Sprouts",
+     "comparison_group": "on-the-vine tomatoes | organic:yes | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 2.9925,
+     "unit_family": "lb",
+     "deal_type": "bogo_50"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Sprouts",
+     "comparison_group": "lemons | organic:yes | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 2.24625,
+     "unit_family": "lb",
+     "deal_type": "bogo_50"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Sprouts",
+     "comparison_group": "limes | organic:yes | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 2.24625,
+     "unit_family": "lb",
+     "deal_type": "bogo_50"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "chicken breast | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 1.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "top round london broil | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 6.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "red seedless grapes | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 1.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "green seedless grapes | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 1.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "black seedless grapes | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 1.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "russet potatoes | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 0.49800000000000005,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "red potatoes | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 0.49800000000000005,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "shrimp | organic:no | frozen:no | bone_in:no | raw_cooked:raw | skin:no | basis:lb",
+     "effective_unit_price": 7.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "shrimp | organic:no | frozen:no | bone_in:no | raw_cooked:cooked | skin:no | basis:lb",
+     "effective_unit_price": 7.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "caramel apple dips | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 4.728888888888889,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "pie pumpkins | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:each",
+     "effective_unit_price": 3.99,
+     "unit_family": "each",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "jack o'lantern pumpkins | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:each",
+     "effective_unit_price": 5.99,
+     "unit_family": "each",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "red seedless grapes | organic:yes | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 3.69,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "green seedless grapes | organic:yes | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 3.69,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "hass avocados | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:each",
+     "effective_unit_price": 1.0,
+     "unit_family": "each",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "honeycrisp apples | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 1.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "bartlett pears | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 1.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "blueberries | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 9.333333333333334,
+     "unit_family": "lb",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "blackberries | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 9.333333333333334,
+     "unit_family": "lb",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "raspberries | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 9.333333333333334,
+     "unit_family": "lb",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "romaine hearts | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:each",
+     "effective_unit_price": 1.1633333333333333,
+     "unit_family": "each",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "cauliflower | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:each",
+     "effective_unit_price": 3.49,
+     "unit_family": "each",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "broccoli | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:each",
+     "effective_unit_price": 3.49,
+     "unit_family": "each",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "vine ripe tomatoes | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:each",
+     "effective_unit_price": 0.75,
+     "unit_family": "each",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "white mushrooms | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 4.0,
+     "unit_family": "lb",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "bell peppers | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:each",
+     "effective_unit_price": 1.5,
+     "unit_family": "each",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "organic salad blends | organic:yes | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 12.8,
+     "unit_family": "lb",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "mandarins | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 1.9966666666666668,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "navel oranges | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 1.9966666666666668,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "cara cara oranges | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 1.9966666666666668,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "organic salads | organic:yes | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 6.0,
+     "unit_family": "lb",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "top round steak | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 8.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "bay scallops | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 10.653333333333334,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "top sirloin steak | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 11.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "beef stir fry | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 12.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "meatballs | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 6.0,
+     "unit_family": "lb",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "sausage | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 5.052631578947368,
+     "unit_family": "lb",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": null,
+     "effective_unit_price": 7.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "chorizo | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 2.2222222222222223,
+     "unit_family": "lb",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "link sausage | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 7.986666666666667,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "chopped ham | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 4.792,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "deli lunchmeat | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 7.265454545454546,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": null,
+     "effective_unit_price": 8.325000000000001,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": null,
+     "effective_unit_price": 42.61333333333334,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "american cheese | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 4.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "salami | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 4.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "pepperoni | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 4.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "cheese slices | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 6.857142857142857,
+     "unit_family": "lb",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "fruit drinks | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:fl oz",
+     "effective_unit_price": 0.057692307692307696,
+     "unit_family": "fl oz",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "refrigerated biscuits | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:each",
+     "effective_unit_price": 0.375,
+     "unit_family": "each",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "cream cheese | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 3.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "greek yogurt | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 3.018867924528302,
+     "unit_family": "lb",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "fish sticks | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 4.564897959183674,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "cold brew coffee | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:fl oz",
+     "effective_unit_price": 0.10395833333333333,
+     "unit_family": "fl oz",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "free range eggs | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:dozen",
+     "effective_unit_price": 4.99,
+     "unit_family": "dozen",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "quesadilla cheese | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 4.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "half & half | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:fl oz",
+     "effective_unit_price": 0.061875,
+     "unit_family": "fl oz",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "gelatin cups | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:each",
+     "effective_unit_price": 0.75,
+     "unit_family": "each",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "oatmilk | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:fl oz",
+     "effective_unit_price": 0.057692307692307696,
+     "unit_family": "fl oz",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "cheese singles | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 6.0,
+     "unit_family": "lb",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "velveeta cheese | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 4.245,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "ground turkey 94/6 | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 5.0,
+     "unit_family": "lb",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "turkey burgers | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 5.0,
+     "unit_family": "lb",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "shredded cheese | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 4.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "chunk cheese | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 4.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "sour cream | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 2.0,
+     "unit_family": "lb",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Winn-Dixie",
+     "comparison_group": "coffee creamer | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:fl oz",
+     "effective_unit_price": 0.09375,
+     "unit_family": "fl oz",
+     "deal_type": "multi_buy"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Aldi",
+     "comparison_group": null,
+     "effective_unit_price": 2.49,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Aldi",
+     "comparison_group": null,
+     "effective_unit_price": 2.49,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Aldi",
+     "comparison_group": "ground beef | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 3.59,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Aldi",
+     "comparison_group": "chicken patties | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 3.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Aldi",
+     "comparison_group": "beef skewers | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 13.691428571428572,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Aldi",
+     "comparison_group": "beef patties | organic:no | frozen:yes | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 4.745,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Aldi",
+     "comparison_group": "ground beef 85/15 | organic:yes | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 5.99,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Aldi",
+     "comparison_group": "pumpkins | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:each",
+     "effective_unit_price": 3.95,
+     "unit_family": "each",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Aldi",
+     "comparison_group": "honeycrisp apples | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 0.995,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Aldi",
+     "comparison_group": "green grapes | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 1.29,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Aldi",
+     "comparison_group": "winter squash | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 0.89,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Aldi",
+     "comparison_group": "bell peppers | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:each",
+     "effective_unit_price": 0.8300000000000001,
+     "unit_family": "each",
+     "deal_type": "price_cut"
+    },
+    {
+     "week_id": "2026-10-01",
+     "store": "Aldi",
+     "comparison_group": "baby bella mushrooms | organic:no | frozen:no | bone_in:no | raw_cooked:no | skin:no | basis:lb",
+     "effective_unit_price": 2.58,
+     "unit_family": "lb",
+     "deal_type": "price_cut"
+    }
+   ]
+  }
+ ]
+}
